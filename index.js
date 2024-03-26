@@ -59,7 +59,6 @@ app.get("/logout", (req, res) => {
 app.get("/secrets", async (req, res) => {
   console.log(req.user);
 
-  ////////////////UPDATED GET SECRETS ROUTE/////////////////
   if (req.isAuthenticated()) {
     try {
       const result = await db.query(
@@ -81,7 +80,6 @@ app.get("/secrets", async (req, res) => {
   }
 });
 
-////////////////SUBMIT GET ROUTE/////////////////
 app.get("/submit", function (req, res) {
   if (req.isAuthenticated()) {
     res.render("submit.ejs");
@@ -146,8 +144,6 @@ app.post("/register", async (req, res) => {
   }
 });
 
-
-////////////////SUBMIT POST ROUTE/////////////////
 app.post("/submit", async function (req, res) {
   const submittedSecret = req.body.secret;
   console.log(req.user);
